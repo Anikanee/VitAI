@@ -1,16 +1,22 @@
-# This is a sample Python script.
+from chatbot import chatbot_reply
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def main():
+    print("VitAI — Առողջություն և բարեկեցություն")
+    print("Գրեք 'ելք'՝ դուրս գալու համար.\n")
 
+    while True:
+        try:
+            user_input = input("Դուք: ")
+        except (KeyboardInterrupt, EOFError):
+            print("\nVitAI: Ծրագիրը ավարտվեց.")
+            break
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+        if user_input.strip().lower() == "ելք":
+            print("VitAI: Ծրագիրը ավարտվեց.")
+            break
 
+        response = chatbot_reply(user_input)
+        print("VitAI:", response)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    main()
